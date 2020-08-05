@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Menus de Hoy</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <br>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>Lista:</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>Nombre</ion-col>
+                    <ion-col>Cantidad</ion-col>
+                    <ion-col>Precio</ion-col>
+                    <ion-col></ion-col>
+                </ion-row>
+                <ion-row *ngFor="let menu of menus">
+                    <ion-col>{{menu.nombre}}</ion-col>
+                    <ion-col>{{menu.cantidad}}</ion-col>
+                    <ion-col>S/.{{menu.precio.toFixed(2)}}</ion-col>
+                    <ion-col>
+                        <ion-button (click)="comprarMenu(menu)">pedir</ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
