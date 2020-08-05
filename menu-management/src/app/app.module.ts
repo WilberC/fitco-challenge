@@ -9,7 +9,6 @@ import {MenuFormComponent} from './components/menu-form/menu-form.component';
 import {PedidosComponent} from './components/pedidos/pedidos.component';
 import {PedidoFormComponent} from './components/pedido-form/pedido-form.component';
 import {AngularFireModule} from '@angular/fire';
-import {AngularFireAnalyticsModule} from '@angular/fire/analytics';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
 import { ClienteComponent } from './components/cliente/cliente.component';
@@ -31,7 +30,6 @@ import { ChefComponent } from './components/chef/chef.component';
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAnalyticsModule,
     AngularFirestoreModule,
     FormsModule
   ],
