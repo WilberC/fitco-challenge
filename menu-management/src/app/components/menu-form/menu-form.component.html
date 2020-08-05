@@ -1,0 +1,18 @@
+<form (ngSubmit)="addMenu()" class="container">
+  <div class="row">
+    <div class="col-sm">
+      <input type="text" name="nombre" [(ngModel)]="menu.nombre" placeholder="Nombre del Menu" class="form-control">
+    </div>
+    <div class="col-sm">
+      <input type="number" name="cantidad" [(ngModel)]="menu.cantidad" placeholder="Cantidad de Menus"
+             class="form-control">
+    </div>
+    <div class="col-sm">
+      <input type="number" name="precio" [(ngModel)]="menu.precio" placeholder="Precio del Menu" class="form-control"
+             step="0.5">
+    </div>
+    <div class="col-sm">
+      <button type="submit" class="btn btn-success">Agregar Menu</button>
+    </div>
+  </div>
+</form>

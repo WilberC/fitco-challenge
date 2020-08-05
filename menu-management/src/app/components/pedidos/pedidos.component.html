@@ -1,0 +1,29 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Nombre</th>
+    <th>Cantidad</th>
+    <th>Fecha Creacion</th>
+    <th *ngIf="currentRout==='/admin'">Fecha Finalización</th>
+    <th *ngIf="currentRout==='/admin'">Precio</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let pedido of pedidos; let i = index">
+    <td>{{i + 1}}</td>
+    <td>{{pedido.nombre}}</td>
+    <td>{{pedido.cantidad}}</td>
+    <td>{{pedido.fecha_creacion.toDate().toLocaleString()}}</td>
+    <td *ngIf="currentRout==='/admin'">
+      {{pedido.fecha_finalizacion ? pedido.fecha_finalizacion.toDate().toLocaleString() : '-'}}
+    </td>
+    <td *ngIf="currentRout==='/admin'">{{pedido.precio.toFixed(2)}}</td>
+    <td class="row" *ngIf="currentRout==='/chef'">
+      <button type="button" (click)="finalizarPedido($event, pedido)" class="btn btn-success col-sm">Finalizar Pedido
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>

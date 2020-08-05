@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fitco-challenge": {
+      "hosting": {
+        "menu-management": [
+          "fitco-challenge"
+        ]
+      }
+    }
+  }
+}

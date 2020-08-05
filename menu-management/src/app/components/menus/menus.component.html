@@ -1,0 +1,54 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Nombre</th>
+    <th>Cantidad</th>
+    <th>Precio</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let menu of menus; let i = index">
+    <td>{{i + 1}}</td>
+    <td>{{menu.nombre}}</td>
+    <td>{{menu.cantidad}}</td>
+    <td>{{menu.precio.toFixed(2)}}</td>
+    <td class="row" *ngIf="currentRout==='/admin'; else cliente">
+      <button type="button" (click)="editingCantidad($event, menu)" class="btn btn-warning col-sm">Agregar Platos
+      </button>
+      <div *ngIf="editing && editingMenuObj.id === menu.id" class="col-sm">
+        <form #form="ngForm" (ngSubmit)="agregarCantidad(form.value, menu)">
+          <div class="form-group">
+            <input type="number" name="cantidad" placeholder="Cuantos menus desea agregar?" class="form-control"
+                   step="1" ngModel>
+            <div class="row">
+              <div class="col-sm">
+                <button type="submit" class="btn btn-link">Agregar</button>
+              </div>
+              <div class="col-sm">
+                <button type="button" class="btn btn-link" (click)="cancelarEditar()">Cancelar</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </td>
+    <ng-template #cliente>
+      <div class="col-sm">
+        <form #form="ngForm" (ngSubmit)="comprarMenu(form.value, menu)">
+          <div class="form-group">
+            <input type="number" name="cantidad" placeholder="Cuantos {{menu.nombre}} desea comprar?"
+                   class="form-control" step="1" ngModel>
+            <div class="row">
+              <div class="col-sm">
+                <button type="submit" class="btn btn-link">Comprar</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </ng-template>
+  </tr>
+  </tbody>
+</table>
